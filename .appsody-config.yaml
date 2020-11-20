@@ -1,0 +1,3 @@
+id: "20201026091322.67906637"
+project-name: todolist
+stack: docker.io/appsody/nodejs-loopback:0.3
