@@ -28,5 +28,6 @@
   "eslint.validate": [
     "javascript",
     "typescript"
-  ]
+  ],
+  "svelte.plugin.typescript.codeActions.enable": false
 }
