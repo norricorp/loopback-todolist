@@ -8,6 +8,9 @@ It has been slightly tailored as a template for `appsody`.
 
 It also includes a JAM stack application using Gridsome.
 
+I have also adapted a todo app in Svelte that only uses id, title, isComplete - so no todolists -
+and a todo can be created with just these fields. Is not part of a todo list.
+
 To run the rest server
 appsody run
 
@@ -21,9 +24,29 @@ curl -X POST -H "Content-Type: application/json" -d "{\"email\":\"maria@email.co
 "email":"maria@email.com"
 }
 
+But I have now added authorization so I need to add roles to the user (admin, developers )
+curl -X POST -H "Content-Type: application/json" -d "{\"email\":\"maria@email.com\", \"password\":\"12345678\", \"roles\":[\"developer\"]}" http:///mint20-loopback4:3000/signup
+
 curl -X POST -H "Content-Type: application/json" -d "{\"email\":\"maria@email.com\", \"password\":\"12345678\"}" http:///mint20-loopback4:3000/users/login
 
 {"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyNjIzOTZhLTk4NmMtNDdmZS04ZGIxLTQzOTFlMDM2NDc1ZCIsImVtYWlsIjoibWFyaWFAZW1haWwuY29tIiwiaWF0IjoxNjE2Njc3NDY3LCJleHAiOjE2MTY2OTkwNjd9.eLDZiZz4N53aTv5nHwPE2a_2i14LN9GU6aUb22PoOgI"}
+
+[Container] Try http://[::1]:3000/ping
+[Container] NORRIS: user login: user is {"id":"23cbfef0-eef5-4872-9805-f8d51529d655","email":"maria@email.com","roles":["developer"]}
+[Container] NORRIS: user login: userProfile is {"id":"23cbfef0-eef5-4872-9805-f8d51529d655","email":"maria@email.com","roles":["developer"]}
+[Container] NORRIS: user login: token is eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIzY2JmZWYwLWVlZjUtNDg3Mi05ODA1LWY4ZDUxNTI5ZDY1NSIsInJvbGVzIjpbImRldmVsb3BlciJdLCJpYXQiOjE2MjQzNTU0NDgsImV4cCI6MTYyNDM3NzA0OH0.owSqxKwBWvAWbJn8zTKm4vAA1b5xeT1J1gJbhKWK4Yw
+[Container] NORRIS: entering basic authorizor
+[Container] NORRIS: Ctx length is: 1
+[Container] NORRIS: Ctx roles length is: 0
+[Container] NORRIS: Ctx[0] is: {"id":"23cbfef0-eef5-4872-9805-f8d51529d655","roles":["developer"],"type":"USER"}
+[Container] NORRIS: user is: {"id":"23cbfef0-eef5-4872-9805-f8d51529d655","roles":["developer"]}
+[Container] NORRIS: current user object is: {"roles":["developer"]}
+[Container] NORRIS: what is in roles: ["developer"]
+[Container] NORRIS: current role includes admin or developer
+
+Actually the todo list controller is NOT protected by authenticate.
+Only the Todo controller is. So infact though the next curl works, it is not necessary.
+It is necessary for todo
 
 curl -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyNjIzOTZhLTk4NmMtNDdmZS04ZGIxLTQzOTFlMDM2NDc1ZCIsImVtYWlsIjoibWFyaWFAZW1haWwuY29tIiwiaWF0IjoxNjE2Njc3NDY3LCJleHAiOjE2MTY2OTkwNjd9.eLDZiZz4N53aTv5nHwPE2a_2i14LN9GU6aUb22PoOgI" http:///mint20-loopback4:3000/todo-lists
 

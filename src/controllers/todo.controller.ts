@@ -198,7 +198,19 @@ export class TodoController {
     return this.todoRepository.todoList(id);
   }
 
-
+  @del('/todos', {
+    responses: {
+      '200': {
+        description: 'Todo Delete complete success count',
+        content: {'application/json': {schema: CountSchema}},
+      },
+    },
+  })
+  async deleteAllComplete(
+    @param.where(Todo) where?: Where<Todo>,
+  ): Promise<Count> {
+    return this.todoRepository.deleteAll(where);
+  }
 
 
 }

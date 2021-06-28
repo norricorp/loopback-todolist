@@ -1,18 +1,16 @@
 {
   "ids": {
-    "Todo": 102,
+    "Todo": 113,
     "TodoList": 102,
-    "User": 5,
-    "UserCredentials": 5
+    "User": 6,
+    "UserCredentials": 6
   },
   "models": {
     "Todo": {
-      "1": "{\"title\":\"Take over the galaxy\",\"desc\":\"MWAHAHAHAHAHAHAHAHAHAHAHAHAMWAHAHAHAHAHAHAHAHAHAHAHAHA\",\"todoListId\":1,\"id\":1}",
-      "2": "{\"title\":\"destroy alderaan\",\"desc\":\"Make sure there are no survivors left!\",\"todoListId\":1,\"id\":2}",
-      "3": "{\"title\":\"play space invaders\",\"desc\":\"Become the very best!\",\"todoListId\":2,\"id\":3}",
-      "4": "{\"title\":\"crush rebel scum\",\"desc\":\"Every.Last.One.\",\"todoListId\":1,\"id\":4}",
-      "100": "{\"title\":\"get eggs\",\"isComplete\":false,\"todoListId\":100,\"id\":100}",
-      "101": "{\"title\":\"continue tar on shed\",\"isComplete\":false,\"todoListId\":101,\"id\":101}"
+      "4": "{\"id\":4,\"title\":\"Do exercises\",\"isComplete\":false}",
+      "109": "{\"title\":\"AWS courses\",\"isComplete\":false,\"id\":109}",
+      "110": "{\"title\":\"garden centre\",\"isComplete\":false,\"id\":110}",
+      "112": "{\"title\":\"Stop languishing\",\"isComplete\":false,\"id\":112}"
     },
     "TodoList": {
       "1": "{\"title\":\"Sith lord's check list\",\"colour\":\"red\",\"id\":1}",
@@ -21,16 +19,10 @@
       "101": "{\"title\":\"gardening list\",\"id\":101}"
     },
     "User": {
-      "2b420ed4-eaeb-45d8-a5e0-9ae68cdd0611": "{\"id\":\"2b420ed4-eaeb-45d8-a5e0-9ae68cdd0611\",\"email\":\"john@email.com\"}",
-      "5bccc71d-38d3-463b-b081-5f82589636c4": "{\"id\":\"5bccc71d-38d3-463b-b081-5f82589636c4\",\"email\":\"maria@email.com\"}",
-      "0262396a-986c-47fe-8db1-4391e036475d": "{\"id\":\"0262396a-986c-47fe-8db1-4391e036475d\",\"email\":\"maria@email.com\"}",
-      "298f6e29-02aa-4283-b9cd-cec78c2cc359": "{\"id\":\"298f6e29-02aa-4283-b9cd-cec78c2cc359\",\"email\":\"john@email.com\"}"
+      "23cbfef0-eef5-4872-9805-f8d51529d655": "{\"id\":\"23cbfef0-eef5-4872-9805-f8d51529d655\",\"email\":\"maria@email.com\",\"roles\":[\"developer\"]}"
     },
     "UserCredentials": {
-      "e0a266a1-2e80-4410-bb84-2181712182ba": "{\"id\":\"e0a266a1-2e80-4410-bb84-2181712182ba\",\"password\":\"$2a$10$oM5w.dF1JowhQSczzOxRquO5DA8wyq2nsJ0oVphDmI0GpaYp.sxWm\",\"userId\":\"2b420ed4-eaeb-45d8-a5e0-9ae68cdd0611\"}",
-      "95bb1350-083e-4133-af47-e8670ef6940c": "{\"id\":\"95bb1350-083e-4133-af47-e8670ef6940c\",\"password\":\"$2a$10$Mi/Yx4SDc2U9k9P1mNt6DuM4Sw5V8vJ0lFxldxfR6ZSeB.RDpDZR2\",\"userId\":\"5bccc71d-38d3-463b-b081-5f82589636c4\"}",
-      "8f5cf049-f3c3-40ed-87cd-6c8993a2b985": "{\"id\":\"8f5cf049-f3c3-40ed-87cd-6c8993a2b985\",\"password\":\"$2a$10$WJcON/sVBNzn9aRNrr4NceS8fGCybHXO73LcARo0KKov44U0RZdEu\",\"userId\":\"0262396a-986c-47fe-8db1-4391e036475d\"}",
-      "794c243e-abf4-47fe-aee8-cd1b83932108": "{\"id\":\"794c243e-abf4-47fe-aee8-cd1b83932108\",\"password\":\"$2a$10$dj4ygsNp6hJN46z6R01w4eQHMQ6kAOxj/yYDD4.h/rmTCq8fSN/LC\",\"userId\":\"298f6e29-02aa-4283-b9cd-cec78c2cc359\"}"
+      "3ce8ae24-b546-4644-aab3-5793c861d33a": "{\"id\":\"3ce8ae24-b546-4644-aab3-5793c861d33a\",\"password\":\"$2a$10$c69w7EZ1341YDU8ZSxBCIuFUmoW8oz1B7.uuQi7mvHz4T5D..K7dO\",\"userId\":\"23cbfef0-eef5-4872-9805-f8d51529d655\"}"
     }
   }
 }
