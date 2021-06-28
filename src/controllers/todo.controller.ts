@@ -1,4 +1,5 @@
 import {authenticate} from '@loopback/authentication';
+import {authorize} from '@loopback/authorization';
 import {
   Count,
   CountSchema,
@@ -10,15 +11,8 @@ import {
 import {
   del, get,
   getModelSchemaRef, param,
-
-
   patch, post,
-
-
-
-
   put,
-
   requestBody
 } from '@loopback/rest';
 import {
@@ -26,6 +20,7 @@ import {
   TodoList
 } from '../models';
 import {TodoRepository} from '../repositories';
+import {basicAuthorization} from '../services';
 
 @authenticate('jwt') // <---- Apply the @authenticate decorator at the class level
 export class TodoController {
@@ -72,6 +67,8 @@ export class TodoController {
     return this.todoRepository.count(where);
   }
 
+  @authorize({allowedRoles: ['developer'],
+              voters: [basicAuthorization]})
   @get('/todos', {
     responses: {
       '200': {
@@ -211,6 +208,5 @@ export class TodoController {
   ): Promise<Count> {
     return this.todoRepository.deleteAll(where);
   }
-
 
 }

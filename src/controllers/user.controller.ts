@@ -17,9 +17,6 @@ import {Filter, model, property, repository} from '@loopback/repository';
 import {
   get,
   getModelSchemaRef,
-
-
-
   param, post,
   requestBody,
   SchemaObject
@@ -35,6 +32,13 @@ export class NewUserRequest extends User {
     required: true,
   })
   password: string;
+
+  @property({
+    type: 'array',
+    itemType: 'string',
+  })
+  roles?: string[];
+
 }
 
 const CredentialsSchema: SchemaObject = {
@@ -67,7 +71,7 @@ export class UserController {
     @inject(UserServiceBindings.USER_SERVICE)
     public userService: MyUserService,
     @inject(SecurityBindings.USER, {optional: true})
-    public user: UserProfile,
+    public user: User,
     @repository(UserRepository) protected userRepository: UserRepository,
   ) {}
 
@@ -95,11 +99,14 @@ export class UserController {
   ): Promise<{token: string}> {
     // ensure the user exists, and the password is correct
     const user = await this.userService.verifyCredentials(credentials);
+    console.log("NORRIS: user login: user is %j", user);
     // convert a User object into a UserProfile object (reduced set of properties)
-    const userProfile = this.userService.convertToUserProfile(user);
-
+    let userProfile = this.userService.convertToUserProfile(user);
+    userProfile = { ...userProfile, roles: user["roles"]};
+    console.log("NORRIS: user login: userProfile is %j", userProfile);
     // create a JSON Web Token based on the user profile
     const token = await this.jwtService.generateToken(userProfile);
+    console.log("NORRIS: user login: token is %s", token);
     return {token};
   }
 
@@ -161,6 +168,7 @@ export class UserController {
     return savedUser;
   }
 
+  @authenticate('jwt')
   @get('/users', {
     responses: {
       '200': {
@@ -182,6 +190,22 @@ export class UserController {
     return this.userRepository.find(filter);
   }
 
+  @authenticate('jwt')
+  @get('/logout', {
+    responses: {
+      '200': {
+        description: 'Logout',
+      },
+    },
+  })
+  async logout(
+    @inject(SecurityBindings.USER)
+    currentUserProfile: UserProfile,
+  ): Promise<void> {
+    await this.userRepository.updateById(currentUserProfile[securityId], {
+      token: '',
+    });
+  }
 
 
 
