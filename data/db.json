@@ -9,7 +9,7 @@
     "Todo": {
       "4": "{\"id\":4,\"title\":\"Do exercises\",\"isComplete\":false}",
       "109": "{\"title\":\"AWS courses\",\"isComplete\":false,\"id\":109}",
-      "110": "{\"title\":\"garden centre\",\"isComplete\":false,\"id\":110}",
+      "110": "{\"id\":110,\"title\":\"garden centre\",\"isComplete\":true}",
       "112": "{\"title\":\"Stop languishing\",\"isComplete\":false,\"id\":112}"
     },
     "TodoList": {
