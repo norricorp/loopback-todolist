@@ -10,8 +10,8 @@ if (require.main === module) {
       port: +(process.env.PORT || 3000),
       host: process.env.HOST,
       cors: {
-        origin: ['https://mint20-loopback4:3000'],
-//        origin: ['https://88.111.150.77:3000'],
+//        origin: ['http://localhost:5000'],
+        origin: ['https://norricorp2.github.io', 'http://localhost:5000'],
         methods: 'GET,HEAD,PUT,PATCH',
       },
       // The `gracePeriodForClose` provides a graceful close for http/https
