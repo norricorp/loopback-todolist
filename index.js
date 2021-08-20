@@ -1,4 +1,5 @@
 const application = require('./dist');
+fs = require("fs");
 
 module.exports = application;
 
@@ -9,7 +10,8 @@ if (require.main === module) {
       port: +(process.env.PORT || 3000),
       host: process.env.HOST,
       cors: {
-        origin: ['http://mint20-loopback4:3000'],
+        origin: ['https://mint20-loopback4:3000'],
+//        origin: ['https://88.111.150.77:3000'],
         methods: 'GET,HEAD,PUT,PATCH',
       },
       // The `gracePeriodForClose` provides a graceful close for http/https
@@ -22,6 +24,10 @@ if (require.main === module) {
         // useful when used with OpenAPI-to-GraphQL to locate your application
         setServersFromRequest: true,
       },
+      // Enable HTTPS
+      protocol: 'https',
+      key: fs.readFileSync('/home/jnorris/key.pem'),
+      cert: fs.readFileSync('/home/jnorris/cert.pem'),
     },
   };
   application.main(config).catch(err => {

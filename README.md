@@ -14,7 +14,8 @@ and a todo can be created with just these fields. Is not part of a todo list.
 To run the rest server
 appsody run
 
-Note that using appsody allows the app to be accessed from external browser. If start with "npm start" then only local.
+Note that using appsody allows the app to be accessed from external browser.
+Can also use npm start --host 0.0.0.0
 
 curl commands for testing from windows
 NB: password has to be at least 8 char
@@ -51,7 +52,7 @@ It is necessary for todo
 curl -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjAyNjIzOTZhLTk4NmMtNDdmZS04ZGIxLTQzOTFlMDM2NDc1ZCIsImVtYWlsIjoibWFyaWFAZW1haWwuY29tIiwiaWF0IjoxNjE2Njc3NDY3LCJleHAiOjE2MTY2OTkwNjd9.eLDZiZz4N53aTv5nHwPE2a_2i14LN9GU6aUb22PoOgI" http:///mint20-loopback4:3000/todo-lists
 
 works!
-
+curl -k https://88.111.150.77:3000/todo-lists
 curl http:///mint20-loopback4:3000/todo-lists
 [
 {
@@ -133,6 +134,10 @@ curl http:///mint20-loopback4:3000/todo-lists/101
 "id": 101,
 "title": "gardening list"
 }
+
+curl -H "Content-Type: application/json" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIzY2JmZWYwLWVlZjUtNDg3Mi05ODA1LWY4ZDUxNTI5ZDY1NSIsImVtYWlsIjoibWFyaWFAZW1haWwuY29tIiwiaWF0IjoxNjI4NTg4NTE4LCJleHAiOjE2Mjg2MTAxMTh9.4aQVfsruB4SpaAxKZY_8LdGQGfMoQ0T0sOObrFPWdV0" http:///mint20-loopback4:3000/todos?filter=%7B%0A%20%20%22where%22%3A%20%7B%0A%20%20%20%20%22todoListId%22%3A%20101%0A%20%20%7D%0A%7D
+
+can we instead call http:///mint20-loopback4:3000/users/{userId}/todos ??
 
 To run the gridsome app (in other window)
 cd gridsome/todolist
