@@ -13,7 +13,7 @@ import {
   UserServiceBindings
 } from '@loopback/authentication-jwt';
 import {inject} from '@loopback/core';
-import {Filter, model, property, repository} from '@loopback/repository';
+import {Filter, repository} from '@loopback/repository';
 import {
   get,
   getModelSchemaRef,
@@ -27,15 +27,8 @@ import {
 import {SecurityBindings, securityId, UserProfile} from '@loopback/security';
 import {genSalt, hash} from 'bcryptjs';
 import _ from 'lodash';
+import {NewUserRequest} from '../models/newuserrequest.model';
 
-@model()
-export class NewUserRequest extends User {
-  @property({
-    type: 'string',
-    required: true,
-  })
-  password: string;
-}
 
 const CredentialsSchema: SchemaObject = {
   type: 'object',
@@ -92,15 +85,18 @@ export class UserController {
   })
   async login(
     @requestBody(CredentialsRequestBody) credentials: Credentials,
-  ): Promise<{token: string}> {
+  ): Promise<{token: string, userid: string}> {
     // ensure the user exists, and the password is correct
     const user = await this.userService.verifyCredentials(credentials);
+    console.log("NORRIS: user login: user object is %j", user);
+    console.log("NORRIS: user login: user id is %s", user.id);
     // convert a User object into a UserProfile object (reduced set of properties)
     const userProfile = this.userService.convertToUserProfile(user);
 
     // create a JSON Web Token based on the user profile
     const token = await this.jwtService.generateToken(userProfile);
-    return {token};
+    const userid = user.id;
+    return {token, userid};
   }
 
   @authenticate('jwt')

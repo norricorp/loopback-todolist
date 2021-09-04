@@ -10,9 +10,8 @@ if (require.main === module) {
       port: +(process.env.PORT || 3000),
       host: process.env.HOST,
       cors: {
-//        origin: ['http://localhost:5000'],
         origin: ['https://norricorp2.github.io', 'http://localhost:5000'],
-        methods: 'GET,HEAD,PUT,PATCH',
+        methods: 'GET,HEAD,PUT,PATCH,DELETE',
       },
       // The `gracePeriodForClose` provides a graceful close for http/https
       // servers with keep-alive clients. The default value is `Infinity`

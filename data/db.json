@@ -1,20 +1,14 @@
 {
   "ids": {
-    "Todo": 117,
+    "Todo": 143,
     "TodoList": 102,
-    "User": 6,
-    "UserCredentials": 6
+    "User": 8,
+    "UserCredentials": 8,
+    "NewUserRequest": 1
   },
   "models": {
     "Todo": {
-      "4": "{\"id\":4,\"title\":\"Do exercises\",\"isComplete\":false}",
-      "109": "{\"id\":109,\"title\":\"AWS courses\",\"isComplete\":true}",
-      "110": "{\"title\":\"garden centre\",\"isComplete\":false,\"id\":110}",
-      "112": "{\"id\":112,\"title\":\"Stop languishing\",\"isComplete\":true}",
-      "113": "{\"id\":113,\"title\":\"pick beans\",\"isComplete\":true}",
-      "114": "{\"id\":114,\"title\":\"look for butterfly eggs\",\"isComplete\":true}",
-      "115": "{\"title\":\"go for a walk\",\"isComplete\":false,\"id\":115}",
-      "116": "{\"title\":\"phone people\",\"isComplete\":false,\"id\":116}"
+      "141": "{\"title\":\"paint stairwell\",\"isComplete\":false,\"newUserRequestId\":\"23cbfef0-eef5-4872-9805-f8d51529d655\",\"id\":141}"
     },
     "TodoList": {
       "1": "{\"title\":\"Sith lord's check list\",\"colour\":\"red\",\"id\":1}",
@@ -23,10 +17,15 @@
       "101": "{\"title\":\"gardening list\",\"id\":101}"
     },
     "User": {
-      "23cbfef0-eef5-4872-9805-f8d51529d655": "{\"id\":\"23cbfef0-eef5-4872-9805-f8d51529d655\",\"email\":\"maria@email.com\",\"roles\":[\"developer\"]}"
+      "23cbfef0-eef5-4872-9805-f8d51529d655": "{\"id\":\"23cbfef0-eef5-4872-9805-f8d51529d655\",\"email\":\"maria@email.com\",\"roles\":[\"developer\"]}",
+      "83c7320e-3416-4fe5-94d5-1a73297023e7": "{\"id\":\"83c7320e-3416-4fe5-94d5-1a73297023e7\",\"email\":\"johnny@email.com\",\"roles\":[\"developer\",\"admin\"]}",
+      "44cd9e86-cb65-4afd-a9cf-0b8797e149d9": "{\"id\":\"44cd9e86-cb65-4afd-a9cf-0b8797e149d9\",\"email\":\"steve@email.com\",\"roles\":[\"developer\"]}"
     },
     "UserCredentials": {
-      "3ce8ae24-b546-4644-aab3-5793c861d33a": "{\"id\":\"3ce8ae24-b546-4644-aab3-5793c861d33a\",\"password\":\"$2a$10$c69w7EZ1341YDU8ZSxBCIuFUmoW8oz1B7.uuQi7mvHz4T5D..K7dO\",\"userId\":\"23cbfef0-eef5-4872-9805-f8d51529d655\"}"
-    }
+      "3ce8ae24-b546-4644-aab3-5793c861d33a": "{\"id\":\"3ce8ae24-b546-4644-aab3-5793c861d33a\",\"password\":\"$2a$10$c69w7EZ1341YDU8ZSxBCIuFUmoW8oz1B7.uuQi7mvHz4T5D..K7dO\",\"userId\":\"23cbfef0-eef5-4872-9805-f8d51529d655\"}",
+      "8cab77cd-c68e-4813-ad31-be9ef021f81c": "{\"id\":\"8cab77cd-c68e-4813-ad31-be9ef021f81c\",\"password\":\"$2a$10$q5cnuH8Z6yuBtMiEtK6PcO9JEtqQvdn/LKY2rbGZe7K2d/xsXH0Mu\",\"userId\":\"83c7320e-3416-4fe5-94d5-1a73297023e7\"}",
+      "deecb947-7b8b-4d76-b8fd-4b61ed45ea47": "{\"id\":\"deecb947-7b8b-4d76-b8fd-4b61ed45ea47\",\"password\":\"$2a$10$sUioKzMlnb2Pi2OJgTbRs.Hv/FhpeMSt9DnoyKgTtwkvY6E/CW4IC\",\"userId\":\"44cd9e86-cb65-4afd-a9cf-0b8797e149d9\"}"
+    },
+    "NewUserRequest": {}
   }
 }
